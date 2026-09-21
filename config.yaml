@@ -1,0 +1,78 @@
+symbols:
+#  - EURUSD
+#  - GBPUSD
+ # - USDCAD
+  - XAUUSDm
+  - BTCUSDm
+  #- US30
+ # - USTECH
+  
+
+indicators:
+  adx_trend_threshold: 20.0        # Very low
+  rsi_buy_ceiling: 65.0            # Very high
+  rsi_sell_floor: 35.0             # Very low
+
+divergence:
+  lookback: 40
+  tolerance: 0.02
+  strict: false                    # Disabled
+
+risk:
+  risk_per_trade: 0.005
+  atr_sl_multiplier: 1.5
+  atr_tp_multiplier: 3.0
+  cooldown_minutes: 60
+  max_positions: 3
+  allow_multiple_positions_per_symbol: false   # true = allow pyramiding into the same symbol
+
+trading_hours:
+  start_hour_utc: 0
+  end_hour_utc: 24
+
+runtime:
+  loop_interval_seconds: 60
+  bars_to_fetch: 300
+  dry_run: false
+  close_positions_on_exit: true
+
+strategy:
+  mode: swing   # "swing" | "scalp" | "divergence" | "trendline" | "sr" | "combo"
+ 
+scalp:
+  entry_timeframe: M1
+  trend_timeframe: M15
+  ema_fast: 9
+  ema_slow: 21
+  rsi_period: 7
+  adx_threshold: 15.0
+  atr_sl_multiplier: 0.8
+  atr_tp_multiplier: 1.2
+  cooldown_minutes: 5
+  loop_interval_seconds: 5
+  max_spread_points: 20.0   # skip the trade if current spread exceeds this many points
+
+divergence_strategy:
+  oscillator: RSI            # "RSI" | "MACD" | "OBV" | "any_two"
+  lookback_bars: 60          # not in the original spec — bounds the swing search window
+  min_swing_gap_bars: 5
+  require_confirmation_bars: 1   # bars to wait after the swing before signalling
+  strength_threshold: 1          # 1 = weak ok, 2 = only strong divergences
+
+trendline_strategy:
+  swing_lookback: 50
+  min_swings_required: 3         # need at least this many swings to fit a line
+  min_r_squared: 0.75            # reject the line if swings don't line up
+  touch_atr_fraction: 0.25       # price within this many ATRs of the line = "touch"
+  break_atr_fraction: 0.30       # price beyond the line by this = confirmed break
+  require_slope_direction: true  # only signal on breaks that go against the slope
+
+sr_strategy:
+  lookback: 100
+  cluster_atr_fraction: 0.25     # merge levels within this many ATRs
+  min_touches: 2
+  approach_atr_fraction: 0.5     # price within this of a zone = "approaching"
+  break_atr_fraction: 0.3        # close beyond zone by this = confirmed break
+  max_zones: 6                   # keep this many strongest zones
+  flip_persist_bars: 20          # not in the original spec — how many closed H1
+                                  # bars a broken zone keeps its flipped role for
