@@ -15146,3 +15146,37 @@ AttributeError: 'bool' object has no attribute 'copy'
 2026-09-21 18:17:26,375 | INFO | mt5_connector | MT5 connection closed.
 2026-09-21 18:18:00,550 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 14.5 fails to confirm a trend
 2026-09-21 18:18:00,812 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 49.7 confirms a trend
+2026-09-21 21:59:14,610 | INFO | mt5_connector | Connected as 477151381 on Exness-MT5Trial9
+2026-09-21 21:59:20,579 | INFO | run | Daily loss limit set to 5.0% ($105.70)
+2026-09-21 21:59:20,596 | INFO | run | Bot starting. Dry run = False. Strategy mode = swing.
+2026-09-21 21:59:20,726 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 13.9 fails to confirm a trend
+2026-09-21 21:59:20,848 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 55.0 confirms a trend
+2026-09-21 22:00:20,910 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 13.7 fails to confirm a trend
+2026-09-21 22:00:20,967 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 56.9 confirms a trend
+2026-09-21 22:01:21,042 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 13.7 fails to confirm a trend
+2026-09-21 22:01:21,082 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 56.9 confirms a trend
+2026-09-21 22:02:21,130 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 13.7 fails to confirm a trend
+2026-09-21 22:02:21,170 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 56.9 confirms a trend
+2026-09-21 22:03:21,215 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 13.7 fails to confirm a trend
+2026-09-21 22:03:21,253 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 56.9 confirms a trend
+2026-09-21 22:04:21,302 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 13.7 fails to confirm a trend
+2026-09-21 22:04:21,347 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 56.9 confirms a trend
+2026-09-21 22:05:21,393 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 13.7 fails to confirm a trend
+2026-09-21 22:05:21,436 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 56.9 confirms a trend
+2026-09-21 22:06:21,485 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 13.7 fails to confirm a trend
+2026-09-21 22:06:21,538 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 56.9 confirms a trend
+2026-09-21 22:07:21,600 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 13.7 fails to confirm a trend
+2026-09-21 22:07:21,649 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 56.9 confirms a trend
+2026-09-21 22:08:21,709 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 13.7 fails to confirm a trend
+2026-09-21 22:08:21,762 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 56.9 confirms a trend
+2026-09-21 22:09:21,809 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 13.7 fails to confirm a trend
+2026-09-21 22:09:21,852 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 56.9 confirms a trend
+2026-09-21 22:10:21,897 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 13.7 fails to confirm a trend
+2026-09-21 22:10:21,936 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 56.9 confirms a trend
+2026-09-21 22:10:41,455 | INFO | run | Manual stop requested.
+2026-09-21 22:10:41,455 | INFO | run | Shutting down...
+2026-09-21 22:10:41,456 | INFO | run | No open positions to close on exit.
+2026-09-21 22:10:41,456 | INFO | run | Session PnL: 0.00 (start 2114.06 -> end 2114.06)
+2026-09-21 22:10:41,456 | INFO | mt5_connector | MT5 connection closed.
+2026-09-21 22:11:52,878 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 13.7 fails to confirm a trend
+2026-09-21 22:11:52,948 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 56.9 confirms a trend
