@@ -7,6 +7,8 @@ from ta.volume import OnBalanceVolumeIndicator
 
 from config import settings
 from logger_setup import get_logger
+import candlestick_patterns
+import fibonacci
 
 log = get_logger("signal_engine")
 
@@ -195,6 +197,16 @@ class SignalEngine:
         macd_falling = last["macd_hist"] < prev["macd_hist"]
         divergence = self.detect_rsi_divergence(h1)
 
+        # Candlestick and Fibonacci confluence — computed up front so they're
+        # available as diagnostic info even on a HOLD bar (see the bottom of
+        # this method), not just when a BUY/SELL is already in play.
+        candle = candlestick_patterns.analyze(h1) if settings.candlestick_enabled else {"pattern": None, "bias": None, "reasons": []}
+        fib = (
+            fibonacci.check_confluence(h1, last["atr"], settings.fibonacci_lookback, settings.fibonacci_tolerance_atr_fraction)
+            if settings.fibonacci_enabled
+            else {"near_level": None, "direction": None, "reasons": []}
+        )
+
         trending = last["adx"] > settings.adx_trend_threshold
         score = 1 if trending else 0
         reasons = [f"ADX {last['adx']:.1f} {'confirms' if trending else 'fails to confirm'} a trend"]
@@ -239,6 +251,38 @@ class SignalEngine:
                 score += divergence["strength"]  # negative, just dents the score
                 reasons.append(f"{divergence['direction']} RSI divergence (strength {divergence['strength']}) noted, not strong enough to veto")
 
+        # Candlestick and Fibonacci confluence: a booster/dampener on a
+        # decision that already came from the core ADX/EMA/RSI/MACD/H4
+        # rules above — never a standalone trigger. This mirrors the
+        # central point of both gold-trading guides (CONVERGENCE — several
+        # signals agreeing, not any one of them traded alone). Deliberately
+        # NOT wired as a veto like strict divergence is above: candlestick
+        # shape and "near a Fib level" are both softer, more subjective
+        # signals than ADX/RSI/MACD, so they're only allowed to nudge the
+        # score, not cancel an otherwise-valid setup outright.
+        if decision in ("BUY", "SELL"):
+            wanted_bias = "bullish" if decision == "BUY" else "bearish"
+
+            if candle["bias"] == wanted_bias:
+                score += 1
+                reasons.extend(candle["reasons"])
+            elif candle["bias"] and candle["bias"] != wanted_bias:
+                score -= 1
+                reasons.append(f"candlestick pattern ({candle['pattern']}) contradicts the {decision} setup")
+
+            if fib["direction"] == wanted_bias:
+                score += 1
+                reasons.extend(fib["reasons"])
+            elif fib["direction"] and fib["direction"] != wanted_bias:
+                reasons.append(f"near a Fibonacci level, but its swing direction argues against this {decision}")
+        else:
+            # Still surface what candlestick/Fibonacci saw even on a HOLD —
+            # pure diagnostics for the log and check_signals.py, doesn't
+            # affect score since there's no decision here for them to
+            # confirm or contradict.
+            reasons.extend(candle["reasons"])
+            reasons.extend(fib["reasons"])
+
         if decision == "BUY" and last["obv"] > h1["obv"].iloc[-5]:
             score += 1
             reasons.append("OBV rising, volume backs the move")
@@ -254,6 +298,8 @@ class SignalEngine:
             "price": last["close"],
             "h4_trend": h4_trend,
             "divergence": divergence,
+            "candlestick": candle,
+            "fibonacci": fib,
             "reasons": reasons,
         }
         log.info(f"{symbol}: {decision} (score={score}) - {'; '.join(reasons)}")

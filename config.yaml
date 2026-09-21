@@ -18,6 +18,24 @@ divergence:
   tolerance: 0.02
   strict: false                    # Disabled
 
+candlestick:
+  enabled: true         # score bonus/penalty when a hammer/hangman/doji/three-
+                         # soldiers/three-crows/star pattern agrees or disagrees
+                         # with a BUY/SELL that already passed the core ADX/EMA/
+                         # RSI/MACD/H4 rules. Never triggers a trade by itself.
+
+fibonacci:
+  enabled: true
+  lookback: 50                     # bars used to find the swing high/low to retrace
+  tolerance_atr_fraction: 0.25     # how close (in ATRs) price must be to a level to count
+
+trade_management:
+  enabled: true
+  breakeven_atr_multiplier: 1.0        # move SL to breakeven once price has moved this many ATRs in our favour
+  breakeven_buffer_atr_fraction: 0.1   # small buffer past exact breakeven (covers spread/commission), in ATRs
+  trail_start_atr_multiplier: 1.5      # once favourable move reaches this many ATRs, start trailing
+  trail_distance_atr_multiplier: 1.0   # trail this many ATRs behind current price
+
 risk:
   risk_per_trade: 0.005
   atr_sl_multiplier: 1.5

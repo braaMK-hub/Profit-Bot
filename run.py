@@ -15,6 +15,7 @@ from signal_engine import SignalEngine
 from risk_manager import RiskManager
 from trade_executor import TradeExecutor
 from deal_monitor import DealMonitor
+from trade_manager import TradeManager
 from helper import get_point_value, get_contract_size, get_spread_points
 
 try:
@@ -188,6 +189,7 @@ def main_loop(dashboard_mode):
     risk = RiskManager()
     executor = TradeExecutor(risk)
     deal_monitor = DealMonitor(risk)  # only ever used in live mode, see below
+    trade_manager = TradeManager()    # breakeven + trailing stop, live mode only
 
     is_scalp = settings.strategy_mode == "scalp"
     loop_interval = settings.scalp_loop_interval_seconds if is_scalp else settings.loop_interval_seconds
@@ -290,6 +292,13 @@ def main_loop(dashboard_mode):
                 except Exception as e:
                     log.error(f"Error processing {symbol}: {e}", exc_info=True)
                     continue
+
+            # Breakeven + trailing stop management for any open live position,
+            # using this cycle's freshly-computed ATR per symbol. No-op in
+            # dry-run (TradeExecutor.check_simulated_exits already handles
+            # simulated exits) and no-op if trade_management.enabled is false.
+            atr_by_symbol = {sym: res.get("atr") for sym, res in signals.items()}
+            trade_manager.manage_open_positions(atr_by_symbol)
 
             if HAS_DASHBOARD:
                 render_dashboard(signals, mt5.positions_get() or [], balance, mode=dashboard_mode)

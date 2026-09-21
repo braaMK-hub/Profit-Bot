@@ -57,6 +57,25 @@ class Settings:
     divergence_tolerance: float = _get("divergence.tolerance", 0.02)
     divergence_strict: bool = _get("divergence.strict", True)
 
+    # --- candlestick pattern confluence (swing mode only, see evaluate() in
+    #     signal_engine.py) — a score booster/dampener, never a standalone
+    #     trigger ---
+    candlestick_enabled: bool = _get("candlestick.enabled", True)
+
+    # --- fibonacci retracement confluence (swing mode only, see evaluate()) ---
+    fibonacci_enabled: bool = _get("fibonacci.enabled", True)
+    fibonacci_lookback: int = _get("fibonacci.lookback", 50)
+    fibonacci_tolerance_atr_fraction: float = _get("fibonacci.tolerance_atr_fraction", 0.25)
+
+    # --- active trade management: breakeven + trailing stop, live mode only
+    #     (see trade_manager.py). Has no effect in dry-run — simulated exits
+    #     are still handled entirely by TradeExecutor.check_simulated_exits() ---
+    trade_mgmt_enabled: bool = _get("trade_management.enabled", True)
+    trade_mgmt_breakeven_atr_multiplier: float = _get("trade_management.breakeven_atr_multiplier", 1.0)
+    trade_mgmt_breakeven_buffer_atr_fraction: float = _get("trade_management.breakeven_buffer_atr_fraction", 0.1)
+    trade_mgmt_trail_start_atr_multiplier: float = _get("trade_management.trail_start_atr_multiplier", 1.5)
+    trade_mgmt_trail_distance_atr_multiplier: float = _get("trade_management.trail_distance_atr_multiplier", 1.0)
+
     # --- session filter (UTC hours) ---
     trading_start_hour: int = _get("trading_hours.start_hour_utc", 7)
     trading_end_hour: int = _get("trading_hours.end_hour_utc", 16)
