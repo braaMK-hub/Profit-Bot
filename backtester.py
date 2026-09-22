@@ -6,6 +6,7 @@ from config import settings
 from signal_engine import SignalEngine
 from risk_manager import RiskManager
 from logger_setup import get_logger
+from helper import get_contract_size, ensure_symbol_visible
 
 log = get_logger("backtester")
 
@@ -20,6 +21,16 @@ class Backtester:
     def fetch_history(self, symbol, timeframe_label, start_date, end_date):
         from data_fetcher import TIMEFRAME_MAP
         tf = TIMEFRAME_MAP[timeframe_label]
+
+        # Live trading (data_fetcher.py) always calls this before fetching —
+        # copy_rates_range() can silently come back empty for a symbol that
+        # isn't yet selected in Market Watch. This was missing here, which is
+        # the likely cause of "Not enough historical data. Got 0 bars" for a
+        # symbol MT5 hasn't been asked to show yet in this session.
+        if not ensure_symbol_visible(symbol):
+            log.warning(f"Symbol {symbol} not available on this broker — check the exact name in Market Watch")
+            return None
+
         rates = mt5.copy_rates_range(symbol, tf, start_date, end_date)
         if rates is None or len(rates) == 0:
             return None
@@ -141,7 +152,7 @@ class Backtester:
                     sl, tp = self.risk.sl_tp_levels(entry, atr, decision)
                     open_trade = {
                         "direction": decision, "entry": entry, "sl": sl, "tp": tp,
-                        "entry_time": next_row.name, "lots": 0.1,
+                        "entry_time": next_row.name, "lots": 0.1, "symbol": symbol,
                     }
 
             equity_curve.append(balance)
@@ -227,8 +238,20 @@ class Backtester:
         return hit_sl, hit_tp
 
     def _pnl(self, trade, exit_price):
+        """PnL = price move x lots x contract size. The forex-standard
+        100,000 units/lot was previously hardcoded here regardless of
+        instrument — correct for EURUSD-style pairs, but wrong by 1000x for
+        gold (100 oz/lot) and by 100,000x for BTC (1 unit/lot), which is
+        exactly what was producing impossible results like a -700% max
+        drawdown on XAUUSDm. get_contract_size() now supplies the right
+        multiplier per symbol, the same one live trading already uses via
+        helper.py, restoring apples-to-apples comparability between
+        symbols. This still doesn't require a live MT5 connection to be
+        correct for gold/silver/oil/crypto — see the reordering in
+        helper.get_contract_size()."""
+        contract_size = get_contract_size(trade["symbol"])
         move = (exit_price - trade["entry"]) if trade["direction"] == "BUY" else (trade["entry"] - exit_price)
-        return move * trade["lots"] * 100000
+        return move * trade["lots"] * contract_size
 
     def _report(self, trades, equity_curve, initial_balance):
         if not trades:

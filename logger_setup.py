@@ -18,7 +18,19 @@ def get_logger(name="trading_bot"):
     file_handler.setFormatter(fmt)
     logger.addHandler(file_handler)
 
-    # Console handler without emojis (to avoid Windows encoding issues)
+    # Console handler: reason strings occasionally carry non-ASCII punctuation
+    # (docstring quoting, or a file re-saved by an editor with "smart
+    # punctuation" enabled). Python's default stdout encoding on Windows
+    # isn't always UTF-8, so force it here (3.7+) rather than relying on
+    # "never use non-ASCII anywhere" as the only defense — errors='replace'
+    # means a genuinely unencodable character prints as '?' instead of
+    # crashing the whole logging call or silently garbling neighboring text.
+    if hasattr(sys.stdout, "reconfigure"):
+        try:
+            sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass  # best-effort; unusual stdout objects may not support this
+
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setLevel(logging.INFO)
     console_handler.setFormatter(fmt)

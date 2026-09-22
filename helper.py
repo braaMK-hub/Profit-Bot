@@ -12,32 +12,40 @@ def ensure_symbol_visible(symbol: str) -> bool:
     return True
 
 def get_contract_size(symbol: str) -> int:
-    """Get the contract size (units per lot) for a symbol."""
-    info = mt5.symbol_info(symbol)
-    if info is None:
-        return 100000  # Default for forex
+    """Get the contract size (units per lot) for a symbol.
 
+    Name-based checks come FIRST, before any MT5 lookup. Originally this
+    called mt5.symbol_info(symbol) and returned the forex default of 100000
+    immediately if that came back None, before ever checking whether the
+    symbol was gold/silver/oil/crypto — which meant get_contract_size()
+    silently gave the wrong answer for XAUUSDm/BTCUSDm etc. any time MT5
+    wasn't connected yet (e.g. a CSV-only backtest with no MT5 session),
+    even though the correct answer only ever depended on the symbol's own
+    name, not on any MT5 data. MT5 is only consulted now as a last resort,
+    for symbols this function doesn't recognize by name at all."""
     if "JPY" in symbol:
         return 100000  # 100,000 units per standard lot for JPY pairs
-    
+
     # XAUUSD (Gold) special handling
     if "XAU" in symbol or "GOLD" in symbol:
         return 100  # 100 ounces per standard lot
-    
+
     # XAGUSD (Silver) special handling
     if "XAG" in symbol or "SILVER" in symbol:
         return 5000  # 5,000 ounces per standard lot
-    
+
     # Oil
     if "WTI" in symbol or "OIL" in symbol:
         return 1000  # 1,000 barrels per standard lot
 
     # Crypto CFDs (BTCUSDm etc.) — usually 1 unit of the coin per lot, not
-    # a forex-style 100,000. This check was previously placed after the
-    # default `return 100000` below, which made it unreachable dead code —
-    # every BTC symbol was silently falling through to the forex default.
+    # a forex-style 100,000.
     if "BTC" in symbol:
         return 1
+
+    info = mt5.symbol_info(symbol)
+    if info is None:
+        return 100000  # unrecognized symbol AND no MT5 data to check against - forex default
 
     # Default for forex (EURUSD, GBPUSD, etc.)
     return 100000

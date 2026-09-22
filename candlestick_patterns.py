@@ -104,13 +104,13 @@ def detect_hammer_hangman(
         return {
             "pattern": "hammer",
             "bias": "bullish",
-            "reasons": ["hammer candle after a down-move — potential bullish reversal"],
+            "reasons": ["hammer candle after a down-move - potential bullish reversal"],
         }
     if trend == "up":
         return {
             "pattern": "hangman",
             "bias": "bearish",
-            "reasons": ["hangman candle after an up-move — potential bearish reversal"],
+            "reasons": ["hangman candle after an up-move - potential bearish reversal"],
         }
     return _no_signal()
 
@@ -133,9 +133,9 @@ def detect_doji(df: pd.DataFrame, body_max_frac: float = 0.08) -> dict:
 
     trend = _recent_trend(df)
     if trend == "up":
-        return {"pattern": "doji", "bias": "bearish", "reasons": ["doji after an up-move — trend may be exhausted"]}
+        return {"pattern": "doji", "bias": "bearish", "reasons": ["doji after an up-move - trend may be exhausted"]}
     if trend == "down":
-        return {"pattern": "doji", "bias": "bullish", "reasons": ["doji after a down-move — trend may be exhausted"]}
+        return {"pattern": "doji", "bias": "bullish", "reasons": ["doji after a down-move - trend may be exhausted"]}
     return _no_signal()
 
 
@@ -168,13 +168,13 @@ def detect_three_soldiers_crows(df: pd.DataFrame, min_body_frac: float = 0.4) ->
         return {
             "pattern": "three_soldiers",
             "bias": "bullish",
-            "reasons": ["three white soldiers — strong bullish continuation/reversal"],
+            "reasons": ["three white soldiers - strong bullish continuation/reversal"],
         }
     if all_bearish and lower_closes:
         return {
             "pattern": "three_crows",
             "bias": "bearish",
-            "reasons": ["three black crows — strong bearish continuation/reversal"],
+            "reasons": ["three black crows - strong bearish continuation/reversal"],
         }
     return _no_signal()
 
@@ -211,13 +211,13 @@ def detect_star(df: pd.DataFrame, min_body_frac: float = 0.5, small_body_max_fra
         return {
             "pattern": "evening_star",
             "bias": "bearish",
-            "reasons": ["evening star pattern — strong bearish reversal signal"],
+            "reasons": ["evening star pattern - strong bearish reversal signal"],
         }
     if not c0_bullish and c2_bullish and c2["close"] > c0_mid:
         return {
             "pattern": "morning_star",
             "bias": "bullish",
-            "reasons": ["morning star pattern — strong bullish reversal signal"],
+            "reasons": ["morning star pattern - strong bullish reversal signal"],
         }
     return _no_signal()
 

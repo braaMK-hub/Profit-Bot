@@ -3,6 +3,7 @@ import MetaTrader5 as mt5
 
 from config import settings
 from logger_setup import get_logger
+from helper import get_contract_size
 
 log = get_logger("trade_executor")
 
@@ -208,11 +209,15 @@ class TradeExecutor:
 
     def _close_simulated_position(self, symbol: str, pos: dict, exit_price: float, reason: str):
         """Close a simulated position and log the result."""
-        # Calculate PnL
+        # Same fix as backtester.py's _pnl(): the 100,000 forex-lot multiplier
+        # was hardcoded here regardless of instrument, which would have made
+        # every dry-run XAUUSDm/BTCUSDm SL/TP PnL log wildly wrong (1000x too
+        # large for gold) the moment a dry-run position actually closed.
+        contract_size = get_contract_size(symbol)
         if pos["direction"] == "BUY":
-            pnl = (exit_price - pos["entry"]) * pos["lots"] * 100000
+            pnl = (exit_price - pos["entry"]) * pos["lots"] * contract_size
         else:
-            pnl = (pos["entry"] - exit_price) * pos["lots"] * 100000
+            pnl = (pos["entry"] - exit_price) * pos["lots"] * contract_size
         
         log.info(f"[DRY RUN] Position closed for {symbol}: {reason} | PnL: ${pnl:.2f} | Entry: {pos['entry']:.5f} | Exit: {exit_price:.5f}")
         
