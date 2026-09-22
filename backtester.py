@@ -17,6 +17,7 @@ class Backtester:
     def __init__(self, engine=None):
         self.engine = engine or SignalEngine()
         self.risk = RiskManager()
+        self.last_trades = []  # populated by run(); read by replay.py's memory system
 
     def fetch_history(self, symbol, timeframe_label, start_date, end_date):
         from data_fetcher import TIMEFRAME_MAP
@@ -132,6 +133,9 @@ class Backtester:
                         "exit_time": row.name,
                         "pnl": pnl,
                         "result": "SL" if hit_sl else "TP",
+                        "symbol": open_trade["symbol"],
+                        "reason": open_trade.get("reason", "unspecified setup"),
+                        "lots": open_trade["lots"],
                     })
                     if hit_sl:
                         self.risk.register_stopout(symbol)
@@ -140,9 +144,9 @@ class Backtester:
             # --- REMOVED cooldown check for backtesting ---
             if not open_trade:
                 if is_multi_strategy:
-                    decision = self._decide_multistrategy(symbol, h1_raw, h4_raw, i, mode)
+                    decision, reason = self._decide_multistrategy(symbol, h1_raw, h4_raw, i, mode)
                 else:
-                    decision = self._decide(h1, i)
+                    decision, reason = self._decide(h1, i)
                 decision_count += 1
                 if decision in ("BUY", "SELL"):
                     signal_count += 1
@@ -153,6 +157,7 @@ class Backtester:
                     open_trade = {
                         "direction": decision, "entry": entry, "sl": sl, "tp": tp,
                         "entry_time": next_row.name, "lots": 0.1, "symbol": symbol,
+                        "reason": reason,
                     }
 
             equity_curve.append(balance)
@@ -164,6 +169,7 @@ class Backtester:
         log.info(f"Total decisions made: {decision_count}")
         log.info(f"Total signals generated: {signal_count}")
         log.info(f"Total trades executed: {len(trades)}")
+        self.last_trades = trades  # exposed for replay.py's memory system to read real outcomes from
         return self._report(trades, equity_curve, initial_balance)
 
     def _decide_multistrategy(self, symbol, h1_raw, h4_raw, i, mode):
@@ -181,12 +187,15 @@ class Backtester:
 
         self.engine is the SAME SignalEngine instance across the whole backtest
         loop, so evaluate_sr's zone-flip memory persists correctly across bars
-        here too, not just in live trading."""
+        here too, not just in live trading.
+
+        Returns (decision, reason) — reason is the real "; ".join(reasons) the
+        evaluator itself already produced, not a separate invented summary."""
         h1_slice = h1_raw.iloc[:i + 1]
         ts = h1_raw.index[i]
         h4_slice = h4_raw[h4_raw.index <= ts]
         if len(h4_slice) < 5:
-            return "HOLD"  # not enough H4 history yet for combo's swing sub-vote to use
+            return "HOLD", "not enough H4 history yet"  # not enough H4 history yet for combo's swing sub-vote to use
 
         dfs = {"H1": h1_slice, "H4": h4_slice}
 
@@ -201,10 +210,17 @@ class Backtester:
         else:
             result = self.engine.evaluate(symbol, dfs)  # shouldn't happen, falls back to swing
 
-        return result["decision"]
+        return result["decision"], "; ".join(result.get("reasons", [])) or f"{mode} signal"
 
     def _decide(self, h1, i):
-        """Super simple: price vs EMA50."""
+        """Super simple: price vs EMA50.
+
+        Returns (decision, reason). The decision logic itself is unchanged —
+        reason is a plain-English snapshot of the same booleans this method
+        already computes, added so replay.py's memory system has something
+        real to key a "setup" on. Nothing here is invented after the fact:
+        every clause in the reason string maps to a condition that was
+        actually just evaluated above it."""
         last = h1.iloc[i]
         prev = h1.iloc[i - 1]
 
@@ -221,10 +237,12 @@ class Backtester:
         #neutral_rsi = 40 < last["rsi"] < 60
 
         if price_above_ema and strong_trend and macd_rising and not_overbought and (h4_bullish or last["h4_trend"] == "neutral"):
-            return "BUY"
+            reason = f"EMA50 bullish crossover, ADX {last['adx']:.1f} trending, MACD rising, RSI {last['rsi']:.1f}"
+            return "BUY", reason
         elif price_below_ema and strong_trend and macd_falling and not_oversold and (h4_bearish or last["h4_trend"] == "neutral"):
-            return "SELL"
-        return "HOLD"
+            reason = f"EMA50 bearish crossover, ADX {last['adx']:.1f} trending, MACD falling, RSI {last['rsi']:.1f}"
+            return "SELL", reason
+        return "HOLD", "no crossover confluence"
         
     def _check_exit(self, row, trade):
         if trade["direction"] == "BUY":

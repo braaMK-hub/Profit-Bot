@@ -19183,3 +19183,304 @@ AttributeError: 'bool' object has no attribute 'copy'
 2026-09-22 17:48:49,555 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 27.3 confirms a trend
 2026-09-22 17:48:49,619 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.5 fails to confirm a trend; doji after a down-move - trend may be exhausted; price 4327.42700 within 4.31551 of the 38.2% Fibonacci retracement level (4331.74251) of the last swing
 2026-09-22 17:48:49,675 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.9 confirms a trend
+2026-09-22 17:49:49,737 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 27.3 confirms a trend
+2026-09-22 17:49:49,789 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.5 fails to confirm a trend; doji after a down-move - trend may be exhausted; price 4327.67600 within 4.06651 of the 38.2% Fibonacci retracement level (4331.74251) of the last swing
+2026-09-22 17:49:49,839 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.9 confirms a trend
+2026-09-22 17:50:49,945 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 27.3 confirms a trend
+2026-09-22 17:50:50,052 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.5 fails to confirm a trend; doji after a down-move - trend may be exhausted; price 4327.34900 within 4.39351 of the 38.2% Fibonacci retracement level (4331.74251) of the last swing
+2026-09-22 17:50:50,160 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.9 confirms a trend
+2026-09-22 17:51:50,242 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 27.3 confirms a trend
+2026-09-22 17:51:50,307 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.5 fails to confirm a trend; doji after a down-move - trend may be exhausted; price 4327.93900 within 3.80351 of the 38.2% Fibonacci retracement level (4331.74251) of the last swing
+2026-09-22 17:51:50,368 | INFO | signal_engine | BTCUSDm: BUY (score=5) - ADX 38.9 confirms a trend; price > EMA50, RSI not overbought, MACD histogram rising; OBV rising, volume backs the move
+2026-09-22 17:52:50,429 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 27.3 confirms a trend
+2026-09-22 17:52:50,496 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.5 fails to confirm a trend; doji after a down-move - trend may be exhausted; price 4327.75600 within 3.98651 of the 38.2% Fibonacci retracement level (4331.74251) of the last swing
+2026-09-22 17:52:50,557 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.9 confirms a trend
+2026-09-22 17:53:50,652 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 27.3 confirms a trend
+2026-09-22 17:53:50,727 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.5 fails to confirm a trend; doji after a down-move - trend may be exhausted; price 4327.86100 within 3.88151 of the 38.2% Fibonacci retracement level (4331.74251) of the last swing
+2026-09-22 17:53:50,800 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.9 confirms a trend
+2026-09-22 17:54:50,919 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 27.3 confirms a trend
+2026-09-22 17:54:51,006 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.5 fails to confirm a trend; doji after a down-move - trend may be exhausted; price 4327.86100 within 3.88151 of the 38.2% Fibonacci retracement level (4331.74251) of the last swing
+2026-09-22 17:54:51,078 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.9 confirms a trend
+2026-09-22 17:55:51,137 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 27.3 confirms a trend
+2026-09-22 17:55:51,197 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.5 fails to confirm a trend; doji after a down-move - trend may be exhausted; price 4327.86100 within 3.88151 of the 38.2% Fibonacci retracement level (4331.74251) of the last swing
+2026-09-22 17:55:51,255 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.9 confirms a trend
+2026-09-22 17:56:51,339 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 27.3 confirms a trend
+2026-09-22 17:56:51,420 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.5 fails to confirm a trend; doji after a down-move - trend may be exhausted; price 4327.86100 within 3.88151 of the 38.2% Fibonacci retracement level (4331.74251) of the last swing
+2026-09-22 17:56:51,492 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.9 confirms a trend
+2026-09-22 17:57:51,595 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 27.3 confirms a trend
+2026-09-22 17:57:51,688 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.5 fails to confirm a trend; price 4331.27000 within 0.47251 of the 38.2% Fibonacci retracement level (4331.74251) of the last swing
+2026-09-22 17:57:51,945 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.9 confirms a trend
+2026-09-22 17:58:52,063 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 27.3 confirms a trend
+2026-09-22 17:58:52,150 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.5 fails to confirm a trend; price 4331.63200 within 0.11051 of the 38.2% Fibonacci retracement level (4331.74251) of the last swing
+2026-09-22 17:58:52,460 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.9 confirms a trend
+2026-09-22 17:59:52,531 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 27.3 confirms a trend
+2026-09-22 17:59:52,589 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.5 fails to confirm a trend; price 4331.20200 within 0.54051 of the 38.2% Fibonacci retracement level (4331.74251) of the last swing
+2026-09-22 17:59:52,647 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.9 confirms a trend
+2026-09-22 18:00:52,762 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 27.3 confirms a trend
+2026-09-22 18:00:52,861 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.5 fails to confirm a trend; price 4331.20200 within 0.54051 of the 38.2% Fibonacci retracement level (4331.74251) of the last swing
+2026-09-22 18:00:53,052 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.9 confirms a trend
+2026-09-22 18:01:53,333 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 29.7 confirms a trend
+2026-09-22 18:01:53,626 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.4 fails to confirm a trend; price 4328.84900 within 2.89351 of the 38.2% Fibonacci retracement level (4331.74251) of the last swing
+2026-09-22 18:01:54,665 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.1 confirms a trend
+2026-09-22 18:01:57,718 | INFO | trade_manager | EURUSDm ticket 3265498725: trailed SL to 1.14417 (price 1.14315)
+2026-09-22 18:02:57,805 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 29.7 confirms a trend; three black crows - strong bearish continuation/reversal
+2026-09-22 18:02:57,881 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.4 fails to confirm a trend; price 4327.91300 within 3.82951 of the 38.2% Fibonacci retracement level (4331.74251) of the last swing
+2026-09-22 18:02:57,957 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.1 confirms a trend
+2026-09-22 18:03:58,134 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 29.8 confirms a trend; three black crows - strong bearish continuation/reversal
+2026-09-22 18:03:58,302 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.4 fails to confirm a trend
+2026-09-22 18:03:58,472 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.1 confirms a trend
+2026-09-22 18:04:58,656 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 29.8 confirms a trend; three black crows - strong bearish continuation/reversal
+2026-09-22 18:04:58,849 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.4 fails to confirm a trend
+2026-09-22 18:04:59,025 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.1 confirms a trend
+2026-09-22 18:05:59,194 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 29.8 confirms a trend; three black crows - strong bearish continuation/reversal
+2026-09-22 18:05:59,350 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.4 fails to confirm a trend
+2026-09-22 18:05:59,515 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.1 confirms a trend
+2026-09-22 18:06:59,815 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 29.8 confirms a trend; hammer candle after a down-move - potential bullish reversal
+2026-09-22 18:07:00,058 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.5 fails to confirm a trend
+2026-09-22 18:07:00,605 | INFO | signal_engine | BTCUSDm: BUY (score=5) - ADX 38.1 confirms a trend; price > EMA50, RSI not overbought, MACD histogram rising; OBV rising, volume backs the move
+2026-09-22 18:08:00,794 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 29.8 confirms a trend; hammer candle after a down-move - potential bullish reversal
+2026-09-22 18:08:00,949 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.5 fails to confirm a trend
+2026-09-22 18:08:01,111 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.1 confirms a trend; doji after an up-move - trend may be exhausted
+2026-09-22 18:09:01,254 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 29.8 confirms a trend; doji after a down-move - trend may be exhausted
+2026-09-22 18:09:01,386 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.5 fails to confirm a trend
+2026-09-22 18:09:01,534 | INFO | signal_engine | BTCUSDm: BUY (score=5) - ADX 38.1 confirms a trend; price > EMA50, RSI not overbought, MACD histogram rising; OBV rising, volume backs the move
+2026-09-22 18:10:01,687 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 29.8 confirms a trend; doji after a down-move - trend may be exhausted
+2026-09-22 18:10:01,829 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.5 fails to confirm a trend
+2026-09-22 18:10:01,977 | INFO | signal_engine | BTCUSDm: BUY (score=5) - ADX 38.1 confirms a trend; price > EMA50, RSI not overbought, MACD histogram rising; OBV rising, volume backs the move
+2026-09-22 18:11:02,116 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 29.8 confirms a trend
+2026-09-22 18:11:02,250 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.5 fails to confirm a trend
+2026-09-22 18:11:02,378 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.1 confirms a trend
+2026-09-22 18:12:02,471 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 29.8 confirms a trend
+2026-09-22 18:12:02,530 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.5 fails to confirm a trend
+2026-09-22 18:12:02,589 | INFO | signal_engine | BTCUSDm: BUY (score=5) - ADX 38.1 confirms a trend; price > EMA50, RSI not overbought, MACD histogram rising; OBV rising, volume backs the move
+2026-09-22 18:13:02,654 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 29.8 confirms a trend
+2026-09-22 18:13:02,708 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.5 fails to confirm a trend
+2026-09-22 18:13:02,762 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.1 confirms a trend
+2026-09-22 18:14:02,863 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 29.8 confirms a trend
+2026-09-22 18:14:02,971 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.6 fails to confirm a trend
+2026-09-22 18:14:03,109 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.1 confirms a trend
+2026-09-22 18:15:03,181 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 29.8 confirms a trend; doji after a down-move - trend may be exhausted
+2026-09-22 18:15:03,234 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.6 fails to confirm a trend
+2026-09-22 18:15:03,289 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.1 confirms a trend
+2026-09-22 18:16:03,353 | INFO | signal_engine | EURUSDm: HOLD (score=1) - ADX 29.8 confirms a trend
+2026-09-22 18:16:03,496 | INFO | signal_engine | XAUUSDm: HOLD (score=0) - ADX 16.6 fails to confirm a trend
+2026-09-22 18:16:03,555 | INFO | signal_engine | BTCUSDm: HOLD (score=1) - ADX 38.1 confirms a trend
+2026-09-22 18:16:14,441 | INFO | run | Manual stop requested.
+2026-09-22 18:16:14,442 | INFO | run | Shutting down...
+2026-09-22 18:16:14,444 | INFO | run | No open positions to close on exit.
+2026-09-22 18:16:14,446 | INFO | run | Session PnL: 552.77 (start 2114.06 -> end 2666.83)
+2026-09-22 18:16:14,448 | INFO | mt5_connector | MT5 connection closed.
+2026-09-22 18:16:28,147 | INFO | mt5_connector | Connected as 477151381 on Exness-MT5Trial9
+2026-09-22 18:16:28,163 | INFO | backtester | Raw data: 2909 bars fetched for XAUUSDm
+2026-09-22 18:16:28,282 | INFO | backtester | Data shape after indicators: (2909, 20)
+2026-09-22 18:16:28,283 | INFO | backtester | Sample bar: close=4726.24900, ema50=4725.57649
+2026-09-22 18:16:28,283 | INFO | backtester | Sample bar: close=4729.21900, ema50=4725.71934
+2026-09-22 18:16:28,283 | INFO | backtester | Sample bar: close=4741.11700, ema50=4726.32317
+2026-09-22 18:16:28,284 | INFO | backtester | Sample bar: close=4756.36200, ema50=4727.50116
+2026-09-22 18:16:28,284 | INFO | backtester | Sample bar: close=4745.84300, ema50=4728.22045
+2026-09-22 18:16:28,285 | INFO | backtester | SIGNAL #1 at bar 200: BUY
+2026-09-22 18:16:28,297 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.296308
+2026-09-22 18:16:28,315 | INFO | backtester | SIGNAL #2 at bar 267: BUY
+2026-09-22 18:16:28,317 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.316307
+2026-09-22 18:16:28,320 | INFO | backtester | SIGNAL #3 at bar 274: BUY
+2026-09-22 18:16:28,329 | INFO | backtester | SIGNAL #4 at bar 292: BUY
+2026-09-22 18:16:28,331 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.330631
+2026-09-22 18:16:28,333 | INFO | backtester | SIGNAL #5 at bar 295: BUY
+2026-09-22 18:16:28,340 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.340015
+2026-09-22 18:16:28,349 | INFO | backtester | SIGNAL #6 at bar 332: SELL
+2026-09-22 18:16:28,353 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.352478
+2026-09-22 18:16:28,354 | INFO | backtester | SIGNAL #7 at bar 341: BUY
+2026-09-22 18:16:28,355 | INFO | backtester | SIGNAL #8 at bar 342: BUY
+2026-09-22 18:16:28,360 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.358310
+2026-09-22 18:16:28,361 | INFO | backtester | SIGNAL #9 at bar 351: SELL
+2026-09-22 18:16:28,364 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.363592
+2026-09-22 18:16:28,372 | INFO | backtester | SIGNAL #10 at bar 364: BUY
+2026-09-22 18:16:28,378 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.377604
+2026-09-22 18:16:28,402 | INFO | backtester | SIGNAL #11 at bar 423: SELL
+2026-09-22 18:16:28,406 | INFO | backtester | SIGNAL #12 at bar 439: SELL
+2026-09-22 18:16:28,422 | INFO | backtester | Bar 500: close=4604.91600, ema50=4683.59343, adx=26.27
+2026-09-22 18:16:28,432 | INFO | backtester | SIGNAL #13 at bar 515: SELL
+2026-09-22 18:16:28,440 | INFO | backtester | SIGNAL #14 at bar 539: SELL
+2026-09-22 18:16:28,444 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.443536
+2026-09-22 18:16:28,464 | INFO | backtester | SIGNAL #15 at bar 565: SELL
+2026-09-22 18:16:28,467 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.467118
+2026-09-22 18:16:28,479 | INFO | backtester | SIGNAL #16 at bar 594: SELL
+2026-09-22 18:16:28,488 | INFO | backtester | SIGNAL #17 at bar 616: SELL
+2026-09-22 18:16:28,490 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.489675
+2026-09-22 18:16:28,512 | INFO | backtester | SIGNAL #18 at bar 651: BUY
+2026-09-22 18:16:28,515 | INFO | backtester | SIGNAL #19 at bar 660: BUY
+2026-09-22 18:16:28,518 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.517670
+2026-09-22 18:16:28,521 | INFO | backtester | SIGNAL #20 at bar 674: BUY
+2026-09-22 18:16:28,530 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.529785
+2026-09-22 18:16:28,537 | INFO | backtester | SIGNAL #21 at bar 710: BUY
+2026-09-22 18:16:28,540 | INFO | backtester | SIGNAL #22 at bar 720: BUY
+2026-09-22 18:16:28,542 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.540910
+2026-09-22 18:16:28,550 | INFO | backtester | SIGNAL #23 at bar 735: SELL
+2026-09-22 18:16:28,552 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.551960
+2026-09-22 18:16:28,553 | INFO | backtester | SIGNAL #24 at bar 740: BUY
+2026-09-22 18:16:28,558 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.557252
+2026-09-22 18:16:28,576 | INFO | backtester | SIGNAL #25 at bar 789: SELL
+2026-09-22 18:16:28,585 | INFO | backtester | SIGNAL #26 at bar 810: SELL
+2026-09-22 18:16:28,589 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.588947
+2026-09-22 18:16:28,592 | INFO | backtester | SIGNAL #27 at bar 827: SELL
+2026-09-22 18:16:28,596 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.595392
+2026-09-22 18:16:28,597 | INFO | backtester | SIGNAL #28 at bar 836: SELL
+2026-09-22 18:16:28,601 | INFO | backtester | SIGNAL #29 at bar 850: SELL
+2026-09-22 18:16:28,608 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.607609
+2026-09-22 18:16:28,617 | INFO | backtester | SIGNAL #30 at bar 888: SELL
+2026-09-22 18:16:28,621 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.620292
+2026-09-22 18:16:28,648 | INFO | backtester | SIGNAL #31 at bar 951: SELL
+2026-09-22 18:16:28,654 | INFO | backtester | SIGNAL #32 at bar 966: SELL
+2026-09-22 18:16:28,657 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.656258
+2026-09-22 18:16:28,661 | INFO | backtester | SIGNAL #33 at bar 973: SELL
+2026-09-22 18:16:28,665 | INFO | backtester | SIGNAL #34 at bar 984: SELL
+2026-09-22 18:16:28,669 | INFO | backtester | Bar 1000: close=4388.07100, ema50=4469.87135, adx=32.32
+2026-09-22 18:16:28,692 | INFO | backtester | SIGNAL #35 at bar 1047: SELL
+2026-09-22 18:16:28,696 | INFO | backtester | SIGNAL #36 at bar 1055: SELL
+2026-09-22 18:16:28,699 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.698102
+2026-09-22 18:16:28,704 | INFO | backtester | SIGNAL #37 at bar 1065: SELL
+2026-09-22 18:16:28,705 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.705185
+2026-09-22 18:16:28,715 | INFO | backtester | SIGNAL #38 at bar 1082: SELL
+2026-09-22 18:16:28,718 | INFO | backtester | SIGNAL #39 at bar 1095: SELL
+2026-09-22 18:16:28,720 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.719760
+2026-09-22 18:16:28,722 | INFO | backtester | SIGNAL #40 at bar 1100: SELL
+2026-09-22 18:16:28,728 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.727772
+2026-09-22 18:16:28,730 | INFO | backtester | SIGNAL #41 at bar 1113: SELL
+2026-09-22 18:16:28,734 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.733284
+2026-09-22 18:16:28,736 | INFO | backtester | SIGNAL #42 at bar 1124: SELL
+2026-09-22 18:16:28,759 | INFO | backtester | SIGNAL #43 at bar 1173: SELL
+2026-09-22 18:16:28,768 | INFO | backtester | SIGNAL #44 at bar 1198: SELL
+2026-09-22 18:16:28,778 | INFO | backtester | SIGNAL #45 at bar 1217: SELL
+2026-09-22 18:16:28,785 | INFO | backtester | SIGNAL #46 at bar 1233: SELL
+2026-09-22 18:16:28,789 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.788952
+2026-09-22 18:16:28,842 | INFO | backtester | SIGNAL #47 at bar 1337: SELL
+2026-09-22 18:16:28,845 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.844085
+2026-09-22 18:16:28,851 | INFO | backtester | SIGNAL #48 at bar 1349: SELL
+2026-09-22 18:16:28,863 | INFO | backtester | SIGNAL #49 at bar 1376: SELL
+2026-09-22 18:16:28,867 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.866306
+2026-09-22 18:16:28,869 | INFO | backtester | SIGNAL #50 at bar 1385: SELL
+2026-09-22 18:16:28,871 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.870907
+2026-09-22 18:16:28,873 | INFO | backtester | SIGNAL #51 at bar 1389: SELL
+2026-09-22 18:16:28,886 | INFO | backtester | SIGNAL #52 at bar 1423: SELL
+2026-09-22 18:16:28,894 | INFO | backtester | SIGNAL #53 at bar 1437: SELL
+2026-09-22 18:16:28,897 | INFO | backtester | SIGNAL #54 at bar 1442: SELL
+2026-09-22 18:16:28,908 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.907031
+2026-09-22 18:16:28,922 | INFO | backtester | Bar 1500: close=4068.93900, ema50=4050.31870, adx=21.18
+2026-09-22 18:16:28,934 | INFO | backtester | SIGNAL #55 at bar 1515: SELL
+2026-09-22 18:16:28,943 | INFO | backtester | SIGNAL #56 at bar 1532: SELL
+2026-09-22 18:16:28,945 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.944749
+2026-09-22 18:16:28,952 | INFO | backtester | SIGNAL #57 at bar 1546: SELL
+2026-09-22 18:16:28,955 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.954149
+2026-09-22 18:16:28,983 | INFO | backtester | SIGNAL #58 at bar 1605: BUY
+2026-09-22 18:16:28,986 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.985496
+2026-09-22 18:16:28,988 | INFO | backtester | SIGNAL #59 at bar 1615: BUY
+2026-09-22 18:16:28,991 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.990069
+2026-09-22 18:16:28,995 | INFO | backtester | SIGNAL #60 at bar 1618: BUY
+2026-09-22 18:16:28,997 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:28.997037
+2026-09-22 18:16:29,000 | INFO | backtester | SIGNAL #61 at bar 1624: BUY
+2026-09-22 18:16:29,003 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.002804
+2026-09-22 18:16:29,007 | INFO | backtester | SIGNAL #62 at bar 1636: SELL
+2026-09-22 18:16:29,011 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.010730
+2026-09-22 18:16:29,012 | INFO | backtester | SIGNAL #63 at bar 1642: BUY
+2026-09-22 18:16:29,016 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.015394
+2026-09-22 18:16:29,018 | INFO | backtester | SIGNAL #64 at bar 1652: SELL
+2026-09-22 18:16:29,020 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.019671
+2026-09-22 18:16:29,062 | INFO | backtester | SIGNAL #65 at bar 1723: SELL
+2026-09-22 18:16:29,083 | INFO | backtester | SIGNAL #66 at bar 1753: SELL
+2026-09-22 18:16:29,086 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.085707
+2026-09-22 18:16:29,096 | INFO | backtester | SIGNAL #67 at bar 1767: SELL
+2026-09-22 18:16:29,102 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.101787
+2026-09-22 18:16:29,118 | INFO | backtester | SIGNAL #68 at bar 1808: SELL
+2026-09-22 18:16:29,123 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.122287
+2026-09-22 18:16:29,148 | INFO | backtester | SIGNAL #69 at bar 1875: BUY
+2026-09-22 18:16:29,158 | INFO | backtester | SIGNAL #70 at bar 1898: BUY
+2026-09-22 18:16:29,163 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.162684
+2026-09-22 18:16:29,164 | INFO | backtester | SIGNAL #71 at bar 1906: BUY
+2026-09-22 18:16:29,167 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.167101
+2026-09-22 18:16:29,183 | INFO | backtester | SIGNAL #72 at bar 1942: SELL
+2026-09-22 18:16:29,185 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.184447
+2026-09-22 18:16:29,186 | INFO | backtester | SIGNAL #73 at bar 1946: SELL
+2026-09-22 18:16:29,189 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.188257
+2026-09-22 18:16:29,190 | INFO | backtester | SIGNAL #74 at bar 1951: BUY
+2026-09-22 18:16:29,196 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.196037
+2026-09-22 18:16:29,198 | INFO | backtester | SIGNAL #75 at bar 1969: BUY
+2026-09-22 18:16:29,201 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.200677
+2026-09-22 18:16:29,207 | INFO | backtester | SIGNAL #76 at bar 1986: SELL
+2026-09-22 18:16:29,211 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.210470
+2026-09-22 18:16:29,213 | INFO | backtester | SIGNAL #77 at bar 1993: SELL
+2026-09-22 18:16:29,215 | INFO | backtester | Bar 2000: close=4025.68200, ema50=4048.93611, adx=28.97
+2026-09-22 18:16:29,219 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.219127
+2026-09-22 18:16:29,224 | INFO | backtester | SIGNAL #78 at bar 2019: BUY
+2026-09-22 18:16:29,228 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.227641
+2026-09-22 18:16:29,229 | INFO | backtester | SIGNAL #79 at bar 2027: SELL
+2026-09-22 18:16:29,231 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.230462
+2026-09-22 18:16:29,232 | INFO | backtester | SIGNAL #80 at bar 2030: BUY
+2026-09-22 18:16:29,239 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.239077
+2026-09-22 18:16:29,247 | INFO | backtester | SIGNAL #81 at bar 2066: BUY
+2026-09-22 18:16:29,251 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.251280
+2026-09-22 18:16:29,253 | INFO | backtester | SIGNAL #82 at bar 2083: SELL
+2026-09-22 18:16:29,256 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.256074
+2026-09-22 18:16:29,270 | INFO | backtester | SIGNAL #83 at bar 2114: BUY
+2026-09-22 18:16:29,285 | INFO | backtester | SIGNAL #84 at bar 2145: BUY
+2026-09-22 18:16:29,287 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.287080
+2026-09-22 18:16:29,288 | INFO | backtester | SIGNAL #85 at bar 2150: BUY
+2026-09-22 18:16:29,290 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.289336
+2026-09-22 18:16:29,293 | INFO | backtester | SIGNAL #86 at bar 2154: BUY
+2026-09-22 18:16:29,298 | INFO | backtester | SIGNAL #87 at bar 2168: BUY
+2026-09-22 18:16:29,308 | INFO | backtester | SIGNAL #88 at bar 2187: BUY
+2026-09-22 18:16:29,318 | INFO | backtester | SIGNAL #89 at bar 2215: BUY
+2026-09-22 18:16:29,367 | INFO | backtester | SIGNAL #90 at bar 2286: BUY
+2026-09-22 18:16:29,384 | INFO | backtester | SIGNAL #91 at bar 2312: BUY
+2026-09-22 18:16:29,394 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.393620
+2026-09-22 18:16:29,445 | INFO | backtester | SIGNAL #92 at bar 2377: BUY
+2026-09-22 18:16:29,447 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.446312
+2026-09-22 18:16:29,452 | INFO | backtester | SIGNAL #93 at bar 2380: BUY
+2026-09-22 18:16:29,454 | INFO | backtester | SIGNAL #94 at bar 2382: BUY
+2026-09-22 18:16:29,477 | INFO | backtester | SIGNAL #95 at bar 2412: BUY
+2026-09-22 18:16:29,480 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.478346
+2026-09-22 18:16:29,483 | INFO | backtester | SIGNAL #96 at bar 2414: BUY
+2026-09-22 18:16:29,502 | INFO | backtester | SIGNAL #97 at bar 2441: BUY
+2026-09-22 18:16:29,510 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.508889
+2026-09-22 18:16:29,513 | INFO | backtester | SIGNAL #98 at bar 2450: BUY
+2026-09-22 18:16:29,526 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.524940
+2026-09-22 18:16:29,536 | INFO | backtester | SIGNAL #99 at bar 2481: BUY
+2026-09-22 18:16:29,543 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.541252
+2026-09-22 18:16:29,557 | INFO | backtester | SIGNAL #100 at bar 2498: BUY
+2026-09-22 18:16:29,561 | INFO | backtester | Bar 2500: close=4610.23200, ema50=4612.09643, adx=22.26
+2026-09-22 18:16:29,565 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.564113
+2026-09-22 18:16:29,572 | INFO | backtester | SIGNAL #101 at bar 2511: BUY
+2026-09-22 18:16:29,579 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.578857
+2026-09-22 18:16:29,603 | INFO | backtester | SIGNAL #102 at bar 2540: SELL
+2026-09-22 18:16:29,618 | INFO | backtester | SIGNAL #103 at bar 2561: SELL
+2026-09-22 18:16:29,637 | INFO | backtester | SIGNAL #104 at bar 2583: SELL
+2026-09-22 18:16:29,640 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.639062
+2026-09-22 18:16:29,647 | INFO | backtester | SIGNAL #105 at bar 2590: SELL
+2026-09-22 18:16:29,652 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.651873
+2026-09-22 18:16:29,664 | INFO | backtester | SIGNAL #106 at bar 2608: BUY
+2026-09-22 18:16:29,677 | INFO | backtester | SIGNAL #107 at bar 2620: BUY
+2026-09-22 18:16:29,682 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.681065
+2026-09-22 18:16:29,684 | INFO | backtester | SIGNAL #108 at bar 2627: BUY
+2026-09-22 18:16:29,687 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.687006
+2026-09-22 18:16:29,689 | INFO | backtester | SIGNAL #109 at bar 2632: SELL
+2026-09-22 18:16:29,693 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.691456
+2026-09-22 18:16:29,694 | INFO | backtester | SIGNAL #110 at bar 2633: SELL
+2026-09-22 18:16:29,751 | INFO | backtester | SIGNAL #111 at bar 2728: SELL
+2026-09-22 18:16:29,763 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.762143
+2026-09-22 18:16:29,768 | INFO | backtester | SIGNAL #112 at bar 2749: SELL
+2026-09-22 18:16:29,779 | INFO | backtester | SIGNAL #113 at bar 2767: SELL
+2026-09-22 18:16:29,783 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.782381
+2026-09-22 18:16:29,786 | INFO | backtester | SIGNAL #114 at bar 2775: SELL
+2026-09-22 18:16:29,791 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.789964
+2026-09-22 18:16:29,795 | INFO | backtester | SIGNAL #115 at bar 2782: SELL
+2026-09-22 18:16:29,806 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.805292
+2026-09-22 18:16:29,826 | INFO | backtester | SIGNAL #116 at bar 2820: SELL
+2026-09-22 18:16:29,831 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.830448
+2026-09-22 18:16:29,844 | INFO | backtester | SIGNAL #117 at bar 2834: SELL
+2026-09-22 18:16:29,846 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.845483
+2026-09-22 18:16:29,867 | INFO | backtester | SIGNAL #118 at bar 2852: BUY
+2026-09-22 18:16:29,890 | INFO | risk_manager | XAUUSDm stopped out, cooldown until 2026-09-22 19:16:29.889226
+2026-09-22 18:16:29,927 | INFO | backtester | Total decisions made: 1490
+2026-09-22 18:16:29,975 | INFO | backtester | Total signals generated: 118
+2026-09-22 18:16:30,018 | INFO | backtester | Total trades executed: 118
+2026-09-22 18:16:30,060 | INFO | backtester | Backtest report: {'total_trades': 118, 'total_return_pct': np.float64(12.11), 'sharpe_ratio': np.float64(0.15), 'max_drawdown_pct': np.float64(-36.96), 'win_rate_pct': 33.9, 'profit_factor': np.float64(1.05), 'avg_trade_duration': '0 days 14:56:56', 'final_balance': np.float64(11211.46)}
+2026-09-22 18:16:30,064 | INFO | mt5_connector | MT5 connection closed.
