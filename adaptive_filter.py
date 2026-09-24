@@ -25,13 +25,14 @@ def check_against_memory(symbol: str, action: str, reason: str) -> dict:
     if prior_loss["found"]:
         example = prior_loss["example"]
         note = (
-            f"skipped: {symbol} {action} has lost on this exact setup before "
-            f"({prior_loss['count']}x, e.g. pnl={example['pnl']} on {example['timestamp']})"
+            f"skipped: {symbol} {action} has a net-negative track record on this setup "
+            f"({prior_loss['occurrences']} occurrences, avg pnl ${prior_loss['avg_pnl']:.2f}, "
+            f"worst pnl=${float(example['pnl']):.2f} on {example['timestamp']})"
         )
         return {"allow": False, "note": note, "cold": False}
 
-    if memory.learnings_warns_about(symbol, action):
-        return {"allow": False, "note": f"skipped: learnings.md warns about {symbol} {action} setups", "cold": False}
+    if memory.learnings_warns_about(symbol, action, reason):
+        return {"allow": False, "note": f"skipped: learnings.md documents this exact {symbol} {action} setup as a loss", "cold": False}
 
     ledger_rows = memory.load_ledger()
     if not ledger_rows:

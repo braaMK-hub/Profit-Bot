@@ -1,5 +1,5 @@
 symbols:
-  - EURUSDm
+ # - EURUSD
 #  - GBPUSD
  # - USDCAD
   - XAUUSDm
@@ -31,6 +31,11 @@ fibonacci:
 
 trade_management:
   enabled: true
+  mode: quick_profit                          # "trail" (breakeven then trailing stop) | "quick_profit" (close
+                                        # a position outright the instant its real floating profit hits
+                                        # quick_profit_usd - see trade_manager.py). SL from RiskManager
+                                        # still caps the downside either way; this only changes the exit.
+  quick_profit_usd: 1.0                # only used when mode: quick_profit
   breakeven_atr_multiplier: 1.0        # move SL to breakeven once price has moved this many ATRs in our favour
   breakeven_buffer_atr_fraction: 0.1   # small buffer past exact breakeven (covers spread/commission), in ATRs
   trail_start_atr_multiplier: 1.5      # once favourable move reaches this many ATRs, start trailing
@@ -41,15 +46,15 @@ risk:
   atr_sl_multiplier: 1.5
   atr_tp_multiplier: 3.0
   cooldown_minutes: 60
-  max_positions: 3
-  allow_multiple_positions_per_symbol: false   # true = allow pyramiding into the same symbol
+  max_positions: 10
+  allow_multiple_positions_per_symbol: true   # true = allow pyramiding into the same symbol
 
 trading_hours:
   start_hour_utc: 0
   end_hour_utc: 24
 
 runtime:
-  loop_interval_seconds: 60
+  loop_interval_seconds: 5
   bars_to_fetch: 300
   dry_run: false
   close_positions_on_exit: true

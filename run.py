@@ -189,7 +189,7 @@ def main_loop(dashboard_mode):
     risk = RiskManager()
     executor = TradeExecutor(risk)
     deal_monitor = DealMonitor(risk)  # only ever used in live mode, see below
-    trade_manager = TradeManager()    # breakeven + trailing stop, live mode only
+    trade_manager = TradeManager(executor)  # breakeven+trail, or quick_profit - see config trade_management.mode
 
     is_scalp = settings.strategy_mode == "scalp"
     loop_interval = settings.scalp_loop_interval_seconds if is_scalp else settings.loop_interval_seconds

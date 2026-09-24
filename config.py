@@ -76,6 +76,13 @@ class Settings:
     trade_mgmt_trail_start_atr_multiplier: float = _get("trade_management.trail_start_atr_multiplier", 1.5)
     trade_mgmt_trail_distance_atr_multiplier: float = _get("trade_management.trail_distance_atr_multiplier", 1.0)
 
+    # --- exit style selector for TradeManager: "trail" (default, breakeven
+    #     then trailing stop, never closes a position outright) or
+    #     "quick_profit" (close a position immediately once its real
+    #     floating profit reaches quick_profit_usd - see trade_manager.py) ---
+    trade_mgmt_mode: str = _get("trade_management.mode", "trail")
+    trade_mgmt_quick_profit_usd: float = _get("trade_management.quick_profit_usd", 1.0)
+
     # --- session filter (UTC hours) ---
     trading_start_hour: int = _get("trading_hours.start_hour_utc", 7)
     trading_end_hour: int = _get("trading_hours.end_hour_utc", 16)

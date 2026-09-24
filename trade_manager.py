@@ -29,7 +29,7 @@ log = get_logger("trade_manager")
 
 
 class TradeManager:
-    def __init__(self):
+    def __init__(self, executor=None):
         # Per-ticket bookkeeping: once a position has been moved to
         # breakeven, we don't want to keep re-deciding that from scratch
         # every loop off potentially noisy price ticks. MT5 is still queried
@@ -37,6 +37,11 @@ class TradeManager:
         # set only remembers WHETHER breakeven has already been done for a
         # ticket, not any state that could go stale.
         self._breakeven_done = set()
+        # Needed for "quick_profit" mode, which closes a specific ticket via
+        # executor.close_position_by_ticket() the instant it hits its target.
+        # Not needed for the default "trail" mode (that only moves SL/TP,
+        # never closes anything itself).
+        self.executor = executor
 
     def manage_open_positions(self, atr_by_symbol: dict):
         """Call once per loop, live mode only. atr_by_symbol = {symbol: atr}
@@ -45,11 +50,23 @@ class TradeManager:
         every other distance in this codebase already uses (SL/TP sizing,
         S/R zones, Fibonacci tolerance) — rather than a fixed pip amount
         that would be meaningless across instruments as different as
-        XAUUSDm and BTCUSDm."""
+        XAUUSDm and BTCUSDm.
+
+        settings.trade_mgmt_mode picks which exit style runs:
+          "trail" (default) - the breakeven-then-trailing-stop logic below,
+            unchanged from before.
+          "quick_profit" - close a position outright the instant its real
+            floating profit reaches settings.trade_mgmt_quick_profit_usd,
+            instead of trailing anything. See _manage_quick_profit()."""
         if settings.dry_run or not settings.trade_mgmt_enabled:
             return
 
         positions = mt5.positions_get() or []
+
+        if settings.trade_mgmt_mode == "quick_profit":
+            self._manage_quick_profit(positions)
+            return
+
         for pos in positions:
             atr = atr_by_symbol.get(pos.symbol)
             if atr is None or atr <= 0:
@@ -123,6 +140,37 @@ class TradeManager:
         comment = result.comment if result else mt5.last_error()
         log.error(f"Failed to modify SL for {pos.symbol} ticket {pos.ticket}: retcode={code}, comment={comment}")
         return False
+
+    def _manage_quick_profit(self, positions):
+        """Close any position the instant its real floating profit reaches
+        settings.trade_mgmt_quick_profit_usd, leaving every other open
+        position (including other stacked positions on the same symbol)
+        untouched.
+
+        Uses MT5's own pos.profit field directly - that's the broker's own
+        authoritative $ P&L for the position, already correct for contract
+        size, currency, and swap, with no manual recomputation needed (the
+        same category of bug fixed earlier in backtester.py/trade_executor.py,
+        where a hardcoded forex-lot multiplier was used for every symbol -
+        reading the real number from MT5 sidesteps that whole class of bug).
+
+        This is a genuinely different exit philosophy from "trail" mode: it
+        takes small wins immediately rather than trying to ride a bigger
+        one, and unlike trailing it can and does fully close positions,
+        every loop, as fast as settings.runtime.loop_interval_seconds
+        allows. It never touches SL - the stop-loss set at entry by
+        RiskManager remains the only thing capping the downside on a
+        position that hasn't reached quick_profit_usd yet."""
+        threshold = settings.trade_mgmt_quick_profit_usd
+        if self.executor is None:
+            log.error("quick_profit mode is on but TradeManager has no executor reference - cannot close positions")
+            return
+
+        for pos in positions:
+            if pos.profit >= threshold:
+                log.info(f"{pos.symbol} ticket {pos.ticket}: quick-profit hit (${pos.profit:.2f} >= ${threshold:.2f}), closing")
+                self.executor.close_position_by_ticket(pos, comment="quick profit")
+                self.forget(pos.ticket)
 
     def forget(self, ticket: int):
         """Call when a position closes (SL/TP hit, manual close, etc.) so

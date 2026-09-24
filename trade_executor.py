@@ -172,6 +172,55 @@ class TradeExecutor:
             else:
                 log.error(f"Failed to close {symbol} position: {result.comment if result else 'unknown error'}")
 
+    def close_position_by_ticket(self, pos, comment: str = "quick profit close") -> bool:
+        """Close ONE specific position by ticket, leaving any other open
+        positions on the same symbol untouched.
+
+        close_position(symbol) above closes EVERY position on a symbol -
+        that's fine when risk.allow_multiple_positions_per_symbol is False
+        (there's only ever one to close), but once stacking is enabled
+        (multiple concurrent positions on the same symbol) it's the wrong
+        tool: closing "the position on XAUUSDm that just hit its profit
+        target" must not also close three other XAUUSDm positions that
+        haven't gotten there yet. This is that missing per-ticket close.
+
+        Real positions only - dry-run's _simulated_positions dict is
+        one-per-symbol and doesn't model stacking (see README limitations),
+        so in dry-run this falls back to close_position(symbol), which is
+        exactly correct there since there's at most one position anyway."""
+        symbol = pos.symbol
+
+        if settings.dry_run:
+            self.close_position(symbol)
+            return True
+
+        tick = mt5.symbol_info_tick(symbol)
+        if tick is None:
+            log.error(f"No tick data for {symbol}, cannot close ticket {pos.ticket}")
+            return False
+
+        opposite = mt5.ORDER_TYPE_SELL if pos.type == mt5.ORDER_TYPE_BUY else mt5.ORDER_TYPE_BUY
+        price = tick.bid if opposite == mt5.ORDER_TYPE_SELL else tick.ask
+
+        request = {
+            "action": mt5.TRADE_ACTION_DEAL,
+            "symbol": symbol,
+            "volume": pos.volume,
+            "type": opposite,
+            "position": pos.ticket,
+            "price": price,
+            "deviation": 10,
+            "magic": MAGIC_NUMBER,
+            "comment": comment[:31],  # MT5 truncates comments past 31 chars anyway
+        }
+        result = mt5.order_send(request)
+        if result and result.retcode == mt5.TRADE_RETCODE_DONE:
+            log.info(f"Closed {symbol} ticket {pos.ticket} at {price:.5f} (real pnl ${pos.profit:.2f})")
+            return True
+
+        log.error(f"Failed to close {symbol} ticket {pos.ticket}: {result.comment if result else mt5.last_error()}")
+        return False
+
     def check_simulated_exits(self):
         """Check if simulated positions hit SL or TP and close them automatically."""
         if not settings.dry_run:

@@ -146,7 +146,7 @@ def main():
     if not args.mode:
         parser.error("--mode raw|memory is required (or pass --reset-memory on its own)")
 
-    end = dt.datetime.strptime(args.end, "%Y-%m-%d") if args.end else dt.datetime.utcnow()
+    end = dt.datetime.strptime(args.end, "%Y-%m-%d") if args.end else dt.datetime.now(dt.timezone.utc).replace(tzinfo=None)
     start = dt.datetime.strptime(args.start, "%Y-%m-%d") if args.start else end - dt.timedelta(days=180)
 
     if args.mode == "raw":
